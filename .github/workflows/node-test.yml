@@ -13,12 +13,12 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: "12.x"
-      - name: Setup NCC 0.23.0 package-lock.json
-        run: mv package-lock.ncc-0-23-0.json package-lock.json
       - name: Install Node Dependencies
         run: npm ci
         env:
           CI: TRUE
+      - name: Setup NCC 0.23.0
+        run: npm install @vercel/ncc@0.23.0
       - name: Run ESLint
         run: npm run lint
       # The project is build in a pretest hook
@@ -33,12 +33,12 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: "12.x"
-      - name: Setup NCC 0.24.1 package-lock.json
-        run: mv package-lock.ncc-0-24-1.json package-lock.json
       - name: Install Node Dependencies
         run: npm ci
         env:
           CI: TRUE
+      - name: Setup NCC 0.24.1
+        run: npm install @vercel/ncc@0.24.1
       - name: Run ESLint
         run: npm run lint
       # The project is build in a pretest hook
