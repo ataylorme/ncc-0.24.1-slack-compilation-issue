@@ -1,0 +1,9 @@
+node_modules
+.env
+env.json
+.aws-sam
+dist/*
+!dist/package.json
+lib/
+index.js
+coverage
