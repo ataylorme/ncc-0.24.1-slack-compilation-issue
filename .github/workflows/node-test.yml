@@ -44,3 +44,23 @@ jobs:
       # The project is build in a pretest hook
       - name: Run unit tests
         run: npm run test
+
+  build_and_test_ncc_0_25_0:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Node.JS 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: "12.x"
+      - name: Install Node Dependencies
+        run: npm ci
+        env:
+          CI: TRUE
+      - name: Setup NCC 0.25.0
+        run: npm install @vercel/ncc@0.25.0
+      - name: Run ESLint
+        run: npm run lint
+      # The project is build in a pretest hook
+      - name: Run unit tests
+        run: npm run test
